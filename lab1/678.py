@@ -4,21 +4,33 @@
 __author__ = "Vlad Karelov"
 import numpy as np
 
-def main(a,n):
-    print(f"{a}\n")
-    result = np.zeros_like(a)
-    for i in range(len(a)):
-        for j in range(len(a)):
-            result[i,j] = a[j,i]
+
+def foo(a: np.array):
+    """Transposes given array"""
+    result = np.transpose(a)
     return result
     
+def main():
+    """Script execution"""
+
+    # User input
+    n = int(input("Enter n: "))
+
+    # Random generated numpy array with size n
+    a = np.random.randint(0, 10, size=(n,n))
+
+    # Generated array
+    print(f"{a}\n")
+
+    # Transpose array
+    a = foo(a)
+
+    # Result
+    print(a)
+
+if __name__ == '__main__':
+    main()
 
 
-n = int(input("Enter n: "))
-a = np.array([[i for i in range(n)] for i in range(n)])
-print(
-    main(a,n)
-)
-
-# одна строчка Numpy transpose?
-# рандомная генерация массива
+# одна строчка Numpy transpose?✔️
+# рандомная генерация массива✔️

@@ -3,28 +3,45 @@
 __author__ = "Vlad Karelov"
 import numpy as np
 
-def main(a):
-    print(f"Array we work with: {a}")
+def sum_aliquot_numbers(array):
+    """Takes array as an argument and returns sum of all numbers that are aliquot to 5"""
+    print(f"Array we work with: {array}")
     result = 0
-    # for i in range(5,len(a),5):
-    #     print(f"Found number: {i}")
-    #     result += a[i]
-    # return result
-    for i in range(len(a)):
-        if 
 
-        
+    for i in range(len(array)):
+        if array[i] % 5 == 0:
+            result += array[i]
+    return result
 
-data = np.zeros(50, dtype=int)
 
-for i in range(len(data)):
-    dummy = np.random.randint(1,10)
-    data[i] = dummy
+def create_array(n):
+    """creates array of n length and fills it with random numbers from 1-100"""
+    data = np.zeros(n, dtype=int)
 
-print(main(data))
+    for i in range(n):
+        dummy = np.random.randint(1,100)
+        data[i] = dummy
 
-# переделать проверка a кратности 5
-# разбить на функции
+    return data
+
+def main():
+    """script execution"""
+
+    # create an array
+    array = create_array(50)
+
+    # sum all numbers that are aliquot to 5
+    result = sum_aliquot_numbers(array)
+
+    #print the result
+    print(result)
+
+if __name__ == '__main__':
+    main()
+
+
+# переделать проверка a кратности 5✔️
+# разбить на функции✔️
 
 
 

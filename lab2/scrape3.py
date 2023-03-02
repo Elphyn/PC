@@ -6,12 +6,13 @@ from datetime import datetime
 # Set up the base URL and headers
 url = 'https://habr.com/ru/all/page'
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-pages = 5
+pages = 10
 
 def scrape_article_data(url, headers, number):
     """Scrapes article data from a website and returns a list of lists, 3rd argument is number of pages"""
     articles = []
     for i in range(1, number):
+        print(f"Page {i} is done")
         response = requests.get(url + str(i), headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
         article_list = soup.find_all('article', class_='tm-articles-list__item')
@@ -50,7 +51,10 @@ def save_dataframe_excel(df):
 articles = scrape_article_data(url, headers, pages)
 df = create_dataframe(articles)
 df = clean_dataframe(df)
-print(df)
 save_dataframe_csv(df)
 save_dataframe_excel(df)
+print(df)
+
+
+
 

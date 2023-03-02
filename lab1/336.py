@@ -3,15 +3,28 @@
 __author__ = "Vlad Karelov"
 from math import factorial
 
-def main(x):
+def foo(n, x):
+    """Takes n and x, returns calculated value"""
     result = 0
-    for i in range(1,x):
-        result +=(factorial(2*i)+abs(x))/(factorial(i**2))
+    for i in range(1, n):
+        result += (factorial(2*i)+abs(x))/factorial(i**2)
     return result
 
-print(main(
-    int(input("Enter x:"))
-))
+
+def main():
+    """Script execution"""
+
+    # User input
+    n = int(input('Enter n: '))
+    x = int(input('Enter x: '))
+
+    # Main part
+    result = foo(n, x)
+    print(f'Result: {result}')
+
+
+if __name__ == '__main__':
+    main()
 
 # факториал переделать
 

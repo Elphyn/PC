@@ -20,9 +20,6 @@ main(
     int(input("Enter l: "))
 )
 
-
-
-
 # написать max руками ✔️
 
 
