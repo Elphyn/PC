@@ -6,13 +6,14 @@ import numpy as np
 def main(a):
     print(f"Array we work with: {a}")
     result = 0
-    for i in range(5,len(a),5):
-        print(f"Found number: {i}")
-        result += i
-    return result
-        
+    # for i in range(5,len(a),5):
+    #     print(f"Found number: {i}")
+    #     result += a[i]
+    # return result
+    for i in range(len(a)):
+        if 
 
-    
+        
 
 data = np.zeros(50, dtype=int)
 
@@ -21,6 +22,9 @@ for i in range(len(data)):
     data[i] = dummy
 
 print(main(data))
+
+# переделать проверка a кратности 5
+# разбить на функции
 
 
 

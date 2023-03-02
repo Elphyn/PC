@@ -5,10 +5,13 @@ def calc(n):
     k = 1
     result = 0
     for k in range(k,n):
-        result += 1/(2*k+1)**2 
-    print(f"Result: {result}")
+        result += 1/(2*k+1)**2
+    return result 
+    # print(f"Result: {result}")
 
 
-calc(
-    n = int(input("Enter n"))
-)
+# print(calc(
+#     int(input("Enter n"))
+# ))
+result = calc(int(input("Enter n")))
+print(f"Result: {result:.4f}")

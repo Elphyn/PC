@@ -1,7 +1,10 @@
 # https://ivtipm.github.io/Programming/Glava06/index06.htm#z136
+# Даны натуральное число n, действительные числа a1,..., an. Вычислить: 
 import numpy as np
 __author__ = "Vlad Karelov"
 
+
+# решение
 def main(n: int, a:list):
     result = 0
     for i in range(1, n):
@@ -9,14 +12,15 @@ def main(n: int, a:list):
     return result
         
 
-
+# ввод данных
 n = int(input("Enter n: "))
-data = np.zeros(n, float)
-for i in range(n):
-    dummy = int(input(f"Enter data[{i+1}]"))
-    data[i] = dummy
+# генерация массива
+data = np.random.uniform(1,10,n)
+print(data)
+
 
 print(f"Result: {main(n,data)}")
 
-
+# функция заполнения масива рандомно✔️
+# добавить коментарии✔️
 

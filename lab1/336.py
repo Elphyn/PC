@@ -13,6 +13,6 @@ print(main(
     int(input("Enter x:"))
 ))
 
-
+# факториал переделать
 
 
