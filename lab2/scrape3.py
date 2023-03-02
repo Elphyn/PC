@@ -47,13 +47,21 @@ def save_dataframe_excel(df):
     filename = f'article_data_{date_string}.xlsx'
     df.to_excel(filename, index=False)
 
-# Call the functions to execute the program
-articles = scrape_article_data(url, headers, pages)
-df = create_dataframe(articles)
-df = clean_dataframe(df)
-save_dataframe_csv(df)
-save_dataframe_excel(df)
-print(df)
+def main():
+    # Call the functions to execute the program
+    articles = scrape_article_data(url, headers, pages)
+    df = create_dataframe(articles)
+    df = clean_dataframe(df)
+    save_dataframe_csv(df)
+    save_dataframe_excel(df)
+    print(df)
+
+
+if __name__ == '__main__':
+    main()
+
+
+
 
 
 
