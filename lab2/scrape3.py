@@ -6,9 +6,9 @@ from datetime import datetime
 # Set up the base URL and headers
 url = 'https://habr.com/ru/all/page'
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-pages = 10
+pages = 3
 
-def scrape_article_data(url, headers, number):
+def scrape_articles_data(url, headers, number):
     """Scrapes article data from a website and returns a list of lists, 3rd argument is number of pages"""
     articles = []
     for i in range(1, number):
@@ -49,7 +49,7 @@ def save_dataframe_excel(df):
 
 def main():
     # Call the functions to execute the program
-    articles = scrape_article_data(url, headers, pages)
+    articles = scrape_articles_data(url, headers, pages)
     df = create_dataframe(articles)
     df = clean_dataframe(df)
     save_dataframe_csv(df)
