@@ -3,13 +3,8 @@
 #  строку с номером n сделать столбцом с номером n, а столбец с номером n сделать строкой с номером n.
 __author__ = "Vlad Karelov"
 import numpy as np
+from module import array_transpose
 
-
-def foo(a: np.array):
-    """Transposes given array"""
-    result = np.transpose(a)
-    return result
-    
 def main():
     """Script execution"""
 
@@ -23,13 +18,32 @@ def main():
     print(f"{a}\n")
 
     # Transpose array
-    a = foo(a)
+    a = array_transpose(a)
 
     # Result
     print(a)
 
+import unittest
+
+class TestArrayTranspose(unittest.TestCase):
+
+    def test_2d_array(self):
+        input_array = np.array([[1, 2], [3, 4]])
+        expected_output = np.array([[1, 3], [2, 4]])
+        self.assertTrue(np.array_equal(array_transpose(input_array), expected_output))
+
+
+    def test_empty_array(self):
+        input_array = np.array([])
+        expected_output = np.array([])
+        self.assertTrue(np.array_equal(array_transpose(input_array), expected_output))
+
+
 if __name__ == '__main__':
-    main()
+    unittest.main()
+
+
+
 
 
 # одна строчка Numpy transpose?✔️

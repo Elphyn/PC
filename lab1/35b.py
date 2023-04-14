@@ -3,9 +3,7 @@
 # max^2(x + y + z/2, xyz) + 1.
 __author__ = "Vlad Karelov"
 import pytest
-
-def findMax(x,y,z:float):
-    return (max(x+y+z/2,x*y*z))**2 + 1
+from module import findMax
 
 def test_findMax():
     # Test Case 1

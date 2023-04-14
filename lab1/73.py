@@ -3,20 +3,8 @@
 __author__ = "Vlad Karelov"
 
 import unittest
+from module import main
 
-def maxx(a,b):
-    if a > b:
-        return a
-    else:
-        return b
-
-def main(k: int,l: int):
-    if k != l:
-        k,l = maxx(k,l), maxx(k,l)
-    else:
-        k,l = 0,0
-    # print(f"k: {k} \nl: {l}")
-    return k, l
 class TestFunctions(unittest.TestCase):
     def test_main_different_values(self):
         # Test Case 1

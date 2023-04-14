@@ -1,14 +1,7 @@
 # https://ivtipm.github.io/Programming/Glava01/index01.htm#z10
 # Даны натуральное число n, действительное число х. 
 __author__ = "Vlad Karelov"
-from math import factorial
-
-def foo(n, x):
-    """Takes n and x, returns calculated value"""
-    result = 0
-    for i in range(1, n):
-        result += (factorial(2*i)+abs(x))/factorial(i**2)
-    return result
+from module import foo
 
 
 def main():
@@ -23,8 +16,25 @@ def main():
     print(f'Result: {result}')
 
 
+import unittest
+
+class TestFoo(unittest.TestCase):
+
+    def test_foo_with_positive_x(self):
+        self.assertAlmostEqual(foo(3, 2), 10.5, delta=0.01)
+        self.assertAlmostEqual(foo(4, 3), 25.16, delta=0.01)
+
+    def test_foo_with_negative_x(self):
+        self.assertAlmostEqual(foo(5, -1), 47.61, delta=0.01)
+
+    def test_foo_with_zero_x(self):
+        self.assertAlmostEqual(foo(6, 0), 88.33, delta=0.01)
+
 if __name__ == '__main__':
-    main()
+    # main()
+    unittest.main()
+
+
 
 # факториал переделать
 

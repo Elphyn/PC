@@ -1,15 +1,8 @@
 # https://ivtipm.github.io/Programming/Glava01/index01.htm#z10
 # Определить время падения камня на поверхности земли с высоты h.
 __author__ = "Vlad Karelov"
-from math import sqrt
 import pytest
-g = 9.81
-
-
-def falltime(height:float):
-    """returns time for objects fall"""
-    result = sqrt(2*height/g)
-    return result
+from module import falltime
 
 
 def test_falltime():
@@ -30,8 +23,8 @@ def test_falltime():
 
 
 if __name__ == '__main__':
-    h = float(input("Enter height: "))
-    print(f"Time: {falltime(h):.2f}")
+    # h = float(input("Enter height: "))
+    # print(f"Time: {falltime(h):.2f}")
 
     # run the test function
     test_falltime()

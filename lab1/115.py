@@ -1,13 +1,7 @@
 # Дано натуральное число n. Вычислить: 
 __author__ = "Vlad Karelov"
 import unittest
-
-def calc(n):
-    k = 1
-    result = 0
-    for k in range(k,n):
-        result += 1/(2*k+1)**2
-    return result 
+from module import calc
 
 
 
