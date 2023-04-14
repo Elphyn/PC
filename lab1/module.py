@@ -75,8 +75,9 @@ def create_array(n):
     return data
 
 
-def foo(n, x):
-    """Takes n and x, returns calculated value"""
+def sum336(n, x):
+    """Takes n and x, returns calculated value
+    https://ivtipm.github.io/Programming/Glava10/index10.htm#z336"""
     result = 0
     F = 2
     denominator_factorial = 1
