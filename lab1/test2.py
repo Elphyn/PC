@@ -27,8 +27,8 @@ def equations_of_motion(y, t):
 # Initial conditions
 x1_0, y1_0, z1_0 = 0, L1, 0
 x2_0, y2_0, z2_0 = L2, 0, 0
-vx1_0, vy1_0, vz1_0 = 0, 0, 0
-vx2_0, vy2_0, vz2_0 = 0, 0, 0
+vx1_0, vy1_0, vz1_0 = 0, 0, 0  # Change the initial velocity of Particle 1
+vx2_0, vy2_0, vz2_0 = 0, 0, 0  # Change the initial velocity of Particle 2
 
 initial_conditions = [x1_0, y1_0, z1_0, x2_0, y2_0, z2_0, vx1_0, vy1_0, vz1_0, vx2_0, vy2_0, vz2_0]
 
@@ -45,6 +45,7 @@ x1, y1, z1, x2, y2, z2, _, _, _, _, _, _ = solution.T
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+# Plot the motion of the particles
 fig = plt.figure()
 ax = fig.add_subplot(111, projection="3d")
 
@@ -56,4 +57,3 @@ ax.set_zlabel("Z")
 ax.legend()
 
 plt.show()
-
