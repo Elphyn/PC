@@ -1,6 +1,5 @@
-import matplotlib.pyplot as plt
 import numpy as np
-__author__ = "Vlad Karelov"
+import matplotlib.pyplot as plt
 
 # Define the complex function
 def complex_function(x):
@@ -28,4 +27,3 @@ plt.grid(True)
 
 # Display the plot
 plt.show()
-

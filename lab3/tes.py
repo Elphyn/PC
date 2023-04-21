@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the data into a DataFrame
-df = pd.read_csv("covid.csv")
+df = pd.read_csv("my_file.csv")
 
 # Filter the data to only include the United States
 us_data = df[df['Country'] == 'Romania']

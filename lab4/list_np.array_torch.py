@@ -3,9 +3,9 @@ import torch
 import time
 
 # Set the dimensions of the matrices
-m = 1000
-n = 1000
-p = 1000
+m = 200
+n = 200
+p = 200
 
 # Create the matrices as lists
 matrix1 = [[i+j for j in range(n)] for i in range(m)]
