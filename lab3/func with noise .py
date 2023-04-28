@@ -11,13 +11,14 @@ x = np.linspace(-2 * np.pi, 2 * np.pi, 1000)
 y = complex_function(x)
 
 # Add noise to the data
+# noise, x, y y_noise = np.array
 noise = np.random.normal(0, 0.2, y.shape)
 y_noisy = y + noise
 
 # Create the plot
 plt.figure(figsize=(10, 6))
 plt.plot(x, y, label='Original function', color='blue')
-plt.plot(x, y_noisy, label='Function with noise', color='red', linestyle='dashed')
+plt.plot(x, y_noisy, label='Function with noise', color='red', linestyle='dashed', alpha=0.5)
 
 # Add labels, title, legend, and grid
 plt.xlabel('x-axis')

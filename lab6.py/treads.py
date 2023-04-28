@@ -4,37 +4,37 @@ import multiprocessing as mp
 from multiprocessing.shared_memory import SharedMemory
 import matplotlib.pyplot as plt
 
-# Set the size of vectors
+# size of vectors
 vector_size = 1000
 
-# Create two random vectors
+# two arrays for multiplication with the sise of (vector_size )
 vec1 = np.random.rand(vector_size)
 vec2 = np.random.rand(vector_size)
 
-# Create shared memory for the vectors
+# Creating shared memory
 vec1_shared = SharedMemory(create=True, size=vec1.nbytes)
 vec2_shared = SharedMemory(create=True, size=vec2.nbytes)
 
-# Copy the vectors to the shared memory
+# Placing vectors in shared memory
 np.ndarray(vec1.shape, dtype=vec1.dtype, buffer=vec1_shared.buf)[:] = vec1
 np.ndarray(vec2.shape, dtype=vec2.dtype, buffer=vec2_shared.buf)[:] = vec2
 
 
 def parallel_dot_product(start, end, shared_mem1, shared_mem2, output, lock):
-    # Reconstruct the numpy arrays from the shared memory
+    # Create a shorter version of array for one thread 
     vec1 = np.ndarray((end-start,), dtype=np.float64, buffer=shared_mem1.buf)
     vec2 = np.ndarray((end-start,), dtype=np.float64, buffer=shared_mem2.buf)
     
-    # Calculate the partial dot product
+    # multiple two short vectors 
     partial_result = np.dot(vec1, vec2)
     
-    # Lock and update the shared output variable
+    # only one tread can update result at a time using lock so no problems
     with lock:
         output.value += partial_result
 
 
 def run_parallel_algorithm(num_threads):
-    # Calculate the size of the subtasks
+    # Cut task into smaller tasks based on number of treads 
     subtask_size = vector_size // num_threads
 
     # Create a shared output variable for the dot product
@@ -70,7 +70,6 @@ def run_parallel_algorithm(num_threads):
 
 
 def main():
-            
     thread_counts = range(1, mp.cpu_count() + 1)
     execution_times = [run_parallel_algorithm(num_threads) for num_threads in thread_counts]
 
@@ -80,6 +79,7 @@ def main():
     plt.ylabel("Execution Time (s)")
     plt.title("Execution Time vs Number of Threads")
     plt.grid()
+    plt.savefig('treadsd.png')
     plt.show()
 
     optimal_threads = thread_counts[np.argmin(execution_times)]

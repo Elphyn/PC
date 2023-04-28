@@ -19,6 +19,6 @@ ax.set_xlabel("Date")
 ax.set_ylabel("Number of New Deaths")
 
 # Rotate x-axis labels for better readability
-# plt.xticks(rotation=45)
+plt.xticks(rotation=45)
 
 plt.show()

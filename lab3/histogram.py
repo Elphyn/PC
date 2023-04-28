@@ -17,5 +17,6 @@ sns.histplot(x, kde=False)
 plt.title('Histogram of Solution')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
-plt.savefig('histogram_solution.png')
+# plt.savefig('histogram_solution.png')
 plt.show()
+
